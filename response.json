@@ -1,0 +1,26 @@
+{
+  "signup" : {
+    "code" : 0,
+    "message" : "注册成功"
+  },
+  "signin" : {
+    "code" : 0,
+    "message" : "登陆成功"
+  },
+  "nameError" : {
+    "code" : -1000,
+    "message" : "账号错误"
+  },
+  "passwordError" : {
+    "code" : -1001,
+    "message" : "密码错误"
+  },
+  "uploadImage" : {
+    "code" : 0,
+    "message" : "上传成功"
+  },
+  "deleteImage" : {
+    "code" : 0,
+    "message" : "删除成功"
+  }
+}

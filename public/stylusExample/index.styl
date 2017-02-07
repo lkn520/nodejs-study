@@ -1,0 +1,107 @@
+@import "style.styl"
+
+/* photos */
+.container-photos {
+  ul {
+    display : flex;
+    flex-wrap: wrap;
+    margin-right: -20px;
+    li {
+      width: 234px;
+      margin-right: 20px;
+      margin-top: 20px;
+      padding: 10px 0;
+      border: 1px solid borderColor;
+      background-color: white;
+      .photo-block {
+        height: 150px;
+        width: 200px;
+        border-radius: 2px;
+        overflow : hidden;
+        margin: 0 auto;
+        box-shadow: 0 5px 10px shadowColor;
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
+        padding: 10px;
+        cursor: pointer;
+        span {
+          position: relative;
+          display : block;
+          height: 100%;
+          width: 100%;
+          background-position : center;
+          background-size: cover;
+          &:hover {
+            &:before, &:after {
+              border: 2px solid highlight;
+            }
+            &:before {
+              animation: clipAniBefore 400ms linear;
+            }
+            &:after {
+              animation: clipAniAfter 400ms linear;
+            }
+          }
+          &:before,
+          &:after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            display: block;
+            width: 200px;
+            height: 150px;
+            @keyframes clipAniBefore {
+              0% {
+                clip: rect(3px,3px,3px,0);
+              }
+              50% {
+                clip: rect(3px,3px,150px,0);
+              }
+              100% {
+                clip: rect(3px,197px,150px,0);
+              }
+            }
+            @keyframes clipAniAfter {
+              0% {
+                clip: rect(147px, 200px,147px,197px);
+              }
+              50% {
+                clip: rect(0, 200px, 147px, 197px);
+              }
+              100% {
+                clip: rect(0, 200px, 147px, 3px);
+              }
+            }
+          }
+        }
+      }
+      p {
+        margin-top: 6px;
+        height: 14px;
+        line-height: 14px;
+        text-indent: 2em;
+        &.photo-creator {
+          font-size: middleSize;
+        }
+        &.photo-create_at {
+          font-size: smallSize;
+          color: shallowColor;
+        }
+      }
+    }
+  }
+}
+/* user-block */
+.user-block {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(-50%);
+  a {
+    font-size: smallSize;
+    &:hover {
+      color: highlight;
+      text-decoration : underline;
+    }
+  }
+}

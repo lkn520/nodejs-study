@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title= title
+    link(href="/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet")
+    link(rel='stylesheet' href="/bootstrap/dist/css/bootstrap.min.css")
+    link(rel='stylesheet' href='/stylesheets/#{ cssPath }.css')
+    link(rel='stylesheet' href='/lightbox2/dist/css/lightbox.min.css')
+    script(src="/jquery/dist/jquery.js")
+    script(src="/jquery-form/jquery.form.js")
+    script(src="/jquery_lazyload/jquery.lazyload.js")
+    script(src="/bootstrap/dist/js/bootstrap.min.js")
+    script(src="/jquery-validation/dist/jquery.validate.js")
+    script(src="/jquery-validation/src/localization/messages_zh.js")
+    script(src="/lightbox2/dist/js/lightbox.min.js")
+    script(src="/javascripts/utils.js")
+    script(src="/javascripts/public.js")
+    script(src="/javascripts/#{ jsPath }.js")
+  body
+    block content

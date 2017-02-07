@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  article.container
+    include nav
+    section.container
+      div#kn-photos.container-photos
+        if images
+          ul
+            for image in images
+              li
+                div.photo-block
+                  a(href="/upload/#{ image.name }" data-lightbox="roadtrip")
+                    span.lazy(data-original='/upload/#{ image.name }')
+                p.photo-creator UP: #{ image.creator.name }
+                p.photo-create_at #{ moment(image.meta.create_at).format('YYYY-MM-DD hh:mm:ss a') }

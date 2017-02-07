@@ -1,0 +1,20 @@
+//
+   Created by Administrator on 2017/1/25/0025.
+nav.container#kn-nav
+  ul
+    li(class="#{ active==='index'&&'active'}")
+      a(href="/")
+        i.fa.fa-chevron-down.fa-w &nbsp;所有图片
+    if user
+      li(class="#{ active==='my'&&'active'}")
+        a(href="/my")
+          i.fa.fa-user.fa-w &nbsp;我上传的
+  div.user-block
+    if user
+      span 欢迎你，#{user.name}
+      span &nbsp;|&nbsp;
+      a(href="/logout") 退出
+    else
+      a(href="/signup") 注册
+      span &nbsp;|&nbsp;
+      a(href="/signin") 登录

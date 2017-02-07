@@ -1,0 +1,40 @@
+//
+   Created by Administrator on 2017/1/25/0025.
+extends layout
+
+block content
+  article.container
+    include nav
+    section.container
+      form#upload-form(method="post",action="/upload",enctype="multipart/form-data")
+        input(type="hidden",name="creator",value="#{user._id}")
+        div.form-group
+          label(for="files") File input
+          input#files(type="file",name="file")
+        button.btn.btn-default Submit
+    section.container
+      div#kn-photos.container-photos
+        if images
+          ul#photo-blocks
+            for image in images
+              li
+                a.clearfix.center-block.text-center(href="#",data-id="#{ image._id }",data-toggle="modal",data-target="#myModel")
+                  i.fa.fa-times.fa-2x
+                div.photo-block
+                  a(href="/upload/#{ image.name }" data-lightbox="roadtrip")
+                    span(style="background-image: url('/upload/#{ image.name }')")
+                p.photo-creator UP: #{ image.creator.name }
+                p.photo-create_at #{ moment(image.meta.create_at).format('YYYY-MM-DD hh:mm:ss') }
+    div.modal.fade.bs-example-modal-sm#myModel(tabindex="-1",role="dialog",aria-labelledby="")
+      div.modal-dialog.modal-sm(role="document")
+        div.modal-content
+          div.modal-header
+            button.close(type="button",data-dismiss="modal",aria-label="Close")
+              span(aria-hidden="true") &times;
+            h4.modal-title 删除
+          div.modal-body
+            h5 你确定要删除这张图片吗？
+          div.modal-footer
+            form#del-form(method="post",action="/photo/del")
+              input(type="hidden",name="_id")
+              button.btn.btn-danger(type="submit") 删除
